@@ -28,11 +28,11 @@ class AuthenticateToken
                 Auth::login($user); // Manually authenticate the user
                 return $next($request);
             } else {
-                return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
+                return response()->json(['status' => 'error', 'message' => 'Unauthenticated User.'], 401);
             }
         } else {
             $token = $bearerToken;
-            return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
+            return response()->json(['status' => 'error', 'message' => 'Unauthenticated User.'], 401);
         }
     }
 }

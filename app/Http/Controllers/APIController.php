@@ -27,7 +27,7 @@ class APIController extends Controller
 
     public function login(Request $request)
     {
-        $validator = Validator::make([
+        $validator = Validator::make($request->all(),[
             'credential' => 'required',
             'password' => 'required'
         ]);
@@ -38,6 +38,11 @@ class APIController extends Controller
         $user = User::where('phone_number', $request->credential)->orWhere('email', $request->credentail)->first();
         if (!$user) {
             return response()->json(['status' => 'error', 'body' => 'User not found by this credential.'], 401);
+        }else{
+            $check = Hash::check($request->password, $user->password);
+            if($check === false){
+            return response()->json(['status' => 'error', 'body' => "Password didn't matched."], 401);
+            }
         }
 
         if ($user->token == null) {
