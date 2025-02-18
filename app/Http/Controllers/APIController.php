@@ -50,7 +50,7 @@ class APIController extends Controller
         } else {
             $token = $user->token;
         }
-        $user->update(['token' => $token, 'device_id' => $request->query('device_id'), 'fcm_id' => $request->query('fcm_id')]);
+        $user->update(['token' => $token, 'device_id' => $request->device_id, 'fcm_id' => $request->fcm_id]);
         Auth::login($user);
         $authuser = Auth::user();
         if ($user->phone_number == $request->credential) {
