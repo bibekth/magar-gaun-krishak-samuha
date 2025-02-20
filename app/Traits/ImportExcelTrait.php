@@ -43,6 +43,7 @@ trait ImportExcelTrait
             $this->makeMonthlyTransaction($rows, $debtInvestment);
             return 'success';
         } catch (Exception $e) {
+            Log::error('Error in getCollection: ' . $e->getMessage());
             return 'failed on getCollection';
         }
     }
