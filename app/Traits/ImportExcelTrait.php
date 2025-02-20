@@ -43,7 +43,7 @@ trait ImportExcelTrait
             $this->makeMonthlyTransaction($rows, $debtInvestment);
             return 'success';
         } catch (Exception $e) {
-            return 'failed';
+            return 'failed on getCollection';
         }
     }
 
@@ -74,7 +74,7 @@ trait ImportExcelTrait
             $this->accumulateTotalDebtCollection($rows, $debtInvestment);
         } catch (Exception $e) {
             Log::error('Error in makeMonthlyTransaction: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on makeMonthlyTransaction';
         }
     }
 
@@ -95,7 +95,7 @@ trait ImportExcelTrait
             }
         } catch (Exception $e) {
             Log::error('Error in accumulateSaving: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on accumulateSavings';
         }
     }
 
@@ -109,7 +109,7 @@ trait ImportExcelTrait
             MonthlyCollection::create(['year' => $row['year'], 'month' => $row['month'], 'total_collected_amount' => $monthlyCollectionAmount]);
         } catch (Exception $e) {
             Log::error('Error in monthlyCollection: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on monthlyCollection';
         }
     }
 
@@ -128,7 +128,7 @@ trait ImportExcelTrait
             MonthlyDownPayment::insert($monthlyDownPayment);
         } catch (Exception $e) {
             Log::error('Error in userMonthlyDownPayment: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on userMonthlyDownPayment';
         }
     }
 
@@ -143,7 +143,7 @@ trait ImportExcelTrait
             }
         } catch (Exception $e) {
             Log::error('Error in remainingDebt: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on remainingDebt';
         }
     }
 
@@ -167,7 +167,7 @@ trait ImportExcelTrait
             MonthlyInvestedDebt::insert($monthlyInvestedDebts);
         } catch (Exception $e) {
             Log::error('Error in monthlyInvestedDebt: ' . $e->getMessage());
-            return 'failed';
+            return 'failed on monthlyInvestedDebt';
         }
     }
 
