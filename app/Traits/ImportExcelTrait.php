@@ -30,8 +30,8 @@ trait ImportExcelTrait
                 $users[$index]['member_id'] = $user->member_id;
             }
 
-            $rows = SimpleExcelReader::create('storage/' . $path . $filename)->fromSheetName('normal')->getRows()->toArray();
-            $debtInvestment = SimpleExcelReader::create('storage/' . $path . $filename)->fromSheetName('debt')->getRows()->toArray();
+            $rows = SimpleExcelReader::create(storage_path('app/public/' . $path . $filename))->fromSheetName('normal')->getRows()->toArray();
+            $debtInvestment = SimpleExcelReader::create(storage_path('app/public/' . $path . $filename))->fromSheetName('debt')->getRows()->toArray();
             foreach ($rows as $row) {
                 $present = collect($users)->firstWhere('member_id', $row['member_id']);
                 if (empty($present)) {

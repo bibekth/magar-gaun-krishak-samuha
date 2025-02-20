@@ -54,7 +54,7 @@ class HomeController extends Controller
                 $filePath = storage_path('app/public/' . $path . $filename);
 
                 // Change file permissions to 775
-                chmod($filePath, 0775);
+                // chmod($filePath, 0775);
             }
             $result = $this->getCollection($path, $filename);
             // DB::commit();
