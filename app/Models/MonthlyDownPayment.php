@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MonthlyDownPayment extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['user_id','down_payment_amount'];
+    protected $fillable = ['user_id','down_payment_amount','year','month'];
 
     public function user(){
         return $this->belongsTo(User::class);

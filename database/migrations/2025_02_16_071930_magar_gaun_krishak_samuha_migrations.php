@@ -86,12 +86,14 @@ return new class extends Migration
             $table->foreign('user_id')->references('member_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->index('user_id');
             $table->decimal('down_payment_amount')->default(0);
+            $table->string('year');
+            $table->tinyInteger('month');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('users', function(Blueprint $table){
-            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade')->after('email');
             $table->softDeletes();
         });
 

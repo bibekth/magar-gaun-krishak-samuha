@@ -35,7 +35,9 @@ trait ImportExcelTrait
             foreach ($rows as $row) {
                 $present = collect($users)->firstWhere('member_id', $row['member_id']);
                 if (empty($present)) {
-                    User::create(['member_id' => $row['member_id'], 'name' => $row['name'], 'password' => $password, 'role_id' => 3]);
+                    User::create(['member_id' => $row['member_id'], 'name' => $row['name'], 'password' => $password, 'role_id' => 3, 'phone_number' => $row['phone_number']]);
+                    FinalSaving::create(['user_id'=>$row['member_id'],'total_savings'=>0]);
+                    TotalDebtCollection::create(['user_id'=>$row['member_id'], 'total_debt_collected_till_now'=>0]);
                 }
             }
             $this->makeMonthlyTransaction($rows, $debtInvestment);
@@ -53,8 +55,8 @@ trait ImportExcelTrait
             $nepali_date = $this->AD_to_BS(today());
             foreach ($rows as $index => $row) {
                 $monthlyTrasaction[$index]['user_id'] = $row['member_id'];
-                $monthlyTrasaction[$index]['year'] = $nepali_date['year'];
-                $monthlyTrasaction[$index]['month'] = $nepali_date['month'];
+                $monthlyTrasaction[$index]['year'] = $row['year'];
+                $monthlyTrasaction[$index]['month'] = $row['month'];
                 $monthlyTrasaction[$index]['savings'] = $row['saving'];
                 $monthlyTrasaction[$index]['down_payment_amount'] = $row['down_payment'];
                 $monthlyTrasaction[$index]['interest'] = $row['interest'];
@@ -104,7 +106,7 @@ trait ImportExcelTrait
             foreach ($rows as $row) {
                 $monthlyCollectionAmount += $row['total_collection'];
             }
-            MonthlyCollection::create(['year' => $nepali_date['year'], 'month' => $nepali_date['month'], 'total_collected_amount' => $monthlyCollectionAmount]);
+            MonthlyCollection::create(['year' => $row['year'], 'month' => $row['month'], 'total_collected_amount' => $monthlyCollectionAmount]);
         } catch (Exception $e) {
             Log::error('Error in monthlyCollection: ' . $e->getMessage());
             return 'failed';
@@ -118,6 +120,8 @@ trait ImportExcelTrait
             foreach ($rows as $index => $row) {
                 $monthlyDownPayment[$index]['user_id'] = $row['member_id'];
                 $monthlyDownPayment[$index]['down_payment_amount'] = $row['down_payment'];
+                $monthlyDownPayment[$index]['year'] = $row['year'];
+                $monthlyDownPayment[$index]['month'] = $row['month'];
                 $monthlyDownPayment[$index]['created_at'] = $now;
                 $monthlyDownPayment[$index]['updated_at'] = $now;
             }
@@ -148,8 +152,8 @@ trait ImportExcelTrait
             $monthlyInvestedDebts= [];
             foreach ($rows as $index  => $row) {
                 $monthlyInvestedDebts[$index]['user_id'] = $row['member_id'];
-                $monthlyInvestedDebts[$index]['year'] = $nepali_date['year'];
-                $monthlyInvestedDebts[$index]['month'] = $nepali_date['month'];
+                $monthlyInvestedDebts[$index]['year'] = $row['year'];
+                $monthlyInvestedDebts[$index]['month'] = $row['month'];
                 $monthlyInvestedDebts[$index]['debt_amount'] = $row['amount'];
                 $monthlyInvestedDebts[$index]['charges'] = $row['charge'];
                 $monthlyInvestedDebts[$index]['final_amount'] = $row['received'];
