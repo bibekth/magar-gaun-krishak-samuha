@@ -65,6 +65,7 @@ trait ImportExcelTrait
                 $monthlyTrasaction[$index]['total_collected_amount'] = $row['total_collection'];
                 $monthlyTrasaction[$index]['created_at'] = $now;
                 $monthlyTrasaction[$index]['updated_at'] = $now;
+                TotalDebtCollection::where(['user_id'=>$row['member_id'],'total_debt_collected_till_now'=>0])->update(['total_debt_collected_till_now'=>$row['debt_amount']]);
             }
             MonthlyTransaction::insert($monthlyTrasaction);
             $this->monthlyCollection($rows, $nepali_date);
