@@ -34,6 +34,7 @@ class APIController extends Controller
             $data['payableSaving'] = 500 * $diffInMonth;
             $data['fine'] = 50 * ($diffInMonth - 1);
             $data['totalDebtCollected'] = $user->totalDebtCollected->total_debt_collected_till_now;
+            $data['lastDownPayment'] = $lastDownPayment;
             return response()->json(['status' => 'success', 'body' => $data], 200);
         }
     }
