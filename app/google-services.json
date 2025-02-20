@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "882323033733",
+    "project_id": "magar-gaun-krishak-samuha",
+    "storage_bucket": "magar-gaun-krishak-samuha.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882323033733:android:d82e4ee820b6ee9f48a3ec",
+        "android_client_info": {
+          "package_name": "com.techenfield.mgks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOPZma0ilDQIizXzFcKGjiWj5bU-MUz1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
