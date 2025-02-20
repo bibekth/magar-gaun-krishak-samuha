@@ -36,28 +36,32 @@ class HomeController extends Controller
         $request->validate([
             'excel' => 'required|mimes:xlsx,xls,csv'
         ]);
-        try{
+        try {
             // DB::beginTransaction();
             $file = $request->file('excel');
             $filetype = $file->getClientOriginalExtension();
-            $filename = 'excel.'.$filetype;
+            $filename = 'excel.' . $filetype;
             $path = 'excel/imports/';
             $exist = Storage::disk('public')->exists($filename);
             if ($exist) {
                 Storage::disk('public')->delete($filename);
             }
-            $storage = Storage::disk('public')->putFileAs($path, $file,$filename);
+            $storage = Storage::disk('public')->putFileAs($path, $file, $filename);
 
             if (!$storage) {
                 return response()->json('Failed to store the file');
+            } else {
+                $filePath = storage_path('app/public/' . $path . $filename);
+
+                // Change file permissions to 775
+                chmod($filePath, 0775);
             }
             $result = $this->getCollection($path, $filename);
             // DB::commit();
             return $result;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             // DB::rollBack();
             return 'failed';
         }
-
     }
 }
