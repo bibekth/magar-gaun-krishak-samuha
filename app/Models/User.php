@@ -56,32 +56,32 @@ class User extends Authenticatable
 
     public function finalSaving()
     {
-        return $this->hasOne(FinalSaving::class);
+        return $this->hasOne(FinalSaving::class, 'user_id','member_id');
     }
 
     public function monthlyDownPayments()
     {
-        return $this->hasMany(MonthlyDownPayment::class);
+        return $this->hasMany(MonthlyDownPayment::class, 'user_id','member_id');
     }
 
     public function monthlyDownDebts()
     {
-        return $this->hasMany(MonthlyInvestedDebt::class);
+        return $this->hasMany(MonthlyInvestedDebt::class, 'user_id','member_id');
     }
 
     public function monthlyTransactions()
     {
-        return $this->hasMany(MonthlyTransaction::class);
+        return $this->hasMany(MonthlyTransaction::class, 'user_id','member_id');
     }
 
     public function remainingDebt()
     {
-        return $this->hasOne(RemainingDebt::class);
+        return $this->hasOne(RemainingDebt::class, 'user_id','member_id');
     }
 
     public function totalDebtCollected()
     {
-        return $this->hasOne(TotalDebtCollection::class);
+        return $this->hasOne(TotalDebtCollection::class, 'user_id','member_id');
     }
 
     public function role(){
