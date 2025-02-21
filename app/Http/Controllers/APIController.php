@@ -49,7 +49,7 @@ class APIController extends Controller
             return response()->json(['status' => 'error', 'body' => $validator->errors()], 500);
         }
 
-        $user = User::where('phone_number', $request->credential)->orWhere('email', $request->credentail)->first();
+        $user = User::where('phone_number', $request->credential)->orWhere('email', $request->credential)->first();
         if (!$user) {
             return response()->json(['status' => 'error', 'body' => 'User not found by this credential.'], 401);
         } else {
