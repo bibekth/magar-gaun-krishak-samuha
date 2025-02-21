@@ -23,7 +23,7 @@ class APIController extends Controller
             $data['totalSavings'] = $user->finalSaving ? $user->finalSaving->total_savings : 0;
             $data['downPaymentHistory'] = $user->monthlyDownPayments;
             $data['monthlyTransactionHistory'] = $user->monthlyTransactions;
-            $data['remainingDebt'] = $user->remainingDebt->debt_amount;
+            $data['remainingDebt'] = $user->remainingDebt ? $user->remainingDebt->debt_amount : 0;
             $lastDownPayment = $data['downPaymentHistory'][count($data['downPaymentHistory']) - 1];
             $diffInYear = intval($nepali_date['year']) - intval($lastDownPayment->year);
             $diffInMonth = intval($nepali_date['month']) - intval($lastDownPayment->month);
