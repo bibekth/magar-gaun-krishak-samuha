@@ -20,7 +20,7 @@ class APIController extends Controller
         $nepali_date = $this->AD_to_BS(today());
         if ($user->role->name == 'User') {
             $data['userName'] = $user->name;
-            $data['totalSavings'] = $user->finalSaving->total_savings;
+            $data['totalSavings'] = $user->finalSaving ? $user->finalSaving->total_savings : 0;
             $data['downPaymentHistory'] = $user->monthlyDownPayments;
             $data['monthlyTransactionHistory'] = $user->monthlyTransactions;
             $data['remainingDebt'] = $user->remainingDebt->debt_amount;
@@ -33,7 +33,7 @@ class APIController extends Controller
             $data['payableInterest'] = 0.01 * $data['remainingDebt'] * $diffInMonth;
             $data['payableSaving'] = 500 * $diffInMonth;
             $data['fine'] = 50 * ($diffInMonth - 1);
-            $data['totalDebtCollected'] = $user->totalDebtCollected->total_debt_collected_till_now;
+            $data['totalDebtCollected'] = $user->totalDebtCollected ? $user->totalDebtCollected->total_debt_collected_till_now : 0;
             $data['lastDownPayment'] = $lastDownPayment;
             return response()->json(['status' => 'success', 'body' => $data], 200);
         }
