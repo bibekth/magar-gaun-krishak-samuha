@@ -24,17 +24,18 @@ class APIController extends Controller
             $data['downPaymentHistory'] = $user->monthlyDownPayments;
             $data['monthlyTransactionHistory'] = $user->monthlyTransactions;
             $data['remainingDebt'] = $user->remainingDebt ? $user->remainingDebt->debt_amount : 0;
-            $lastDownPayment = $data['downPaymentHistory'][count($data['downPaymentHistory']) - 1];
-            $diffInYear = intval($nepali_date['year']) - intval($lastDownPayment->year);
-            $diffInMonth = intval($nepali_date['month']) - intval($lastDownPayment->month);
-            if ($diffInYear !== 0) {
-                $diffInMonth += $diffInYear * 12;
-            }
+            // $lastDownPayment = $data['downPaymentHistory'][count($data['downPaymentHistory']) - 1];
+            // $diffInYear = intval($nepali_date['year']) - intval($lastDownPayment->year);
+            // $diffInMonth = intval($nepali_date['month']) - intval($lastDownPayment->month);
+            // if ($diffInYear !== 0) {
+            //     $diffInMonth += $diffInYear * 12;
+            // }
+            $diffInMonth = $user->remainingDebt->unpaid_months + 1;
             $data['payableInterest'] = 0.01 * $data['remainingDebt'] * $diffInMonth;
             $data['payableSaving'] = 500 * $diffInMonth;
             $data['fine'] = 50 * ($diffInMonth - 1);
             $data['totalDebtCollected'] = $user->totalDebtCollected ? $user->totalDebtCollected->total_debt_collected_till_now : 0;
-            $data['lastDownPayment'] = $lastDownPayment;
+            $data['lastDownPayment'] = $data['downPaymentHistory'][count($data['downPaymentHistory']) - 1];;
             return response()->json(['status' => 'success', 'body' => $data], 200);
         }
     }

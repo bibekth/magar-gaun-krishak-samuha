@@ -36,8 +36,8 @@ trait ImportExcelTrait
                 $present = collect($users)->firstWhere('member_id', $row['member_id']);
                 if (empty($present)) {
                     User::create(['member_id' => $row['member_id'], 'name' => $row['name'], 'password' => $password, 'role_id' => 3, 'phone_number' => $row['phone_number']]);
-                    FinalSaving::create(['user_id'=>$row['member_id'],'total_savings'=>0]);
-                    TotalDebtCollection::create(['user_id'=>$row['member_id'], 'total_debt_collected_till_now'=>0]);
+                    FinalSaving::create(['user_id' => $row['member_id'], 'total_savings' => 0]);
+                    TotalDebtCollection::create(['user_id' => $row['member_id'], 'total_debt_collected_till_now' => 0]);
                 }
             }
             $this->makeMonthlyTransaction($rows, $debtInvestment);
@@ -65,7 +65,7 @@ trait ImportExcelTrait
                 $monthlyTrasaction[$index]['total_collected_amount'] = $row['total_collection'] ?: 0;
                 $monthlyTrasaction[$index]['created_at'] = $now;
                 $monthlyTrasaction[$index]['updated_at'] = $now;
-                TotalDebtCollection::where(['user_id'=>$row['member_id'],'total_debt_collected_till_now'=>0])->update(['total_debt_collected_till_now'=>$row['debt_amount'] ?: 0]);
+                TotalDebtCollection::where(['user_id' => $row['member_id'], 'total_debt_collected_till_now' => 0])->update(['total_debt_collected_till_now' => $row['debt_amount'] ?: 0]);
             }
             MonthlyTransaction::insert($monthlyTrasaction);
             $this->monthlyCollection($rows, $nepali_date);
@@ -140,7 +140,7 @@ trait ImportExcelTrait
             foreach ($rows as $row) {
                 RemainingDebt::updateOrCreate(
                     ['user_id' => $row['member_id']],
-                    ['debt_amount'=> $row['remaining_debt'] ?: 0]
+                    ['debt_amount' => $row['remaining_debt'] ?: 0, 'unpaid_months' => $row['now'] ?: 0],
                 );
             }
         } catch (Exception $e) {
@@ -149,9 +149,10 @@ trait ImportExcelTrait
         }
     }
 
-    public function monthlyInvestedDebt($rows, $nepali_date, $now){
+    public function monthlyInvestedDebt($rows, $nepali_date, $now)
+    {
         try {
-            $monthlyInvestedDebts= [];
+            $monthlyInvestedDebts = [];
             foreach ($rows as $index  => $row) {
                 $monthlyInvestedDebts[$index]['user_id'] = $row['member_id'];
                 $monthlyInvestedDebts[$index]['year'] = $row['year'];
@@ -162,8 +163,8 @@ trait ImportExcelTrait
                 $monthlyInvestedDebts[$index]['created_at'] = $now;
                 $monthlyInvestedDebts[$index]['updated_at'] = $now;
                 RemainingDebt::updateOrCreate(
-                    ['user_id'=>$row['member_id']],
-                    ['debt_amount'=>DB::raw('debt_amount + '. $row['amount'] ?: 0)]
+                    ['user_id' => $row['member_id']],
+                    ['debt_amount' => DB::raw('debt_amount + ' . $row['amount'] ?: 0)],
                 );
             }
             MonthlyInvestedDebt::insert($monthlyInvestedDebts);
@@ -173,10 +174,11 @@ trait ImportExcelTrait
         }
     }
 
-    public function accumulateTotalDebtCollection($rows, $debtInvestment){
-        foreach($debtInvestment as $index => $debt){
+    public function accumulateTotalDebtCollection($rows, $debtInvestment)
+    {
+        foreach ($debtInvestment as $index => $debt) {
             TotalDebtCollection::updateOrCreate(
-                ['user_id'=>$debt['member_id']],
+                ['user_id' => $debt['member_id']],
                 ['total_debt_collected_till_now' => DB::raw('total_debt_collected_till_now + ' . $debt['amount'] ?: 0)]
             );
         }

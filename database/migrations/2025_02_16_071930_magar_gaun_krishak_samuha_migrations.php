@@ -66,6 +66,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('member_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->index('user_id');
             $table->decimal('debt_amount')->default(0);
+            $table->integer('unpaid_months')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
