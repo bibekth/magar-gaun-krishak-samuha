@@ -4,179 +4,236 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/neutral_color"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:padding="8dp"
+        android:id="@+id/llTitleSection"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_48tedp"
+        android:background="@color/accent_color"
+        android:gravity="center"
+        android:paddingStart="@dimen/_8tedp"
+        android:paddingEnd="@dimen/_8tedp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvAppName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_24tesp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTitleSection">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_8tedp"
+            android:layout_marginBottom="@dimen/_4tedp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvNameText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Name: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/name_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvTotalSavingsText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Total Savings: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/total_savings_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvTotalSavings"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvTotalDebtCollectedText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Total Debt Collected: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/total_debt_collected_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvTotalDebtCollected"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvLastPaymentDateText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Last Payment Date: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/last_payment_date_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvLastPaymentDate"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvLastDownPaymentText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Last Down Payment: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/last_down_payment_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvLastDownPayment"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvRemainingDebtText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Remaining Debt: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/remaining_debt_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvRemainingDebt"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvPayableInterestText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Payable Interest: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/payable_interest_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvPayableInterest"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvPayableSavingText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Payable Saving: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/payable_saving_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvPayableSaving"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvFineText"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Fine: "
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
+                android:text="@string/fine_home"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvFine"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -197,6 +254,7 @@
             android:id="@+id/rlPay"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="@color/gray"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
@@ -205,13 +263,14 @@
                 android:src="@drawable/pay_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Pay" />
+                android:contentDescription="@string/pay" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rlHome"
             android:gravity="center"
+            android:background="@color/secondary_color"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -221,13 +280,14 @@
                 android:src="@drawable/home_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Home" />
+                android:contentDescription="@string/home" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rlProfile"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="@color/gray"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
@@ -236,8 +296,7 @@
                 android:src="@drawable/profile_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Profile" />
-
+                android:contentDescription="@string/profile" />
         </RelativeLayout>
     </LinearLayout>
 

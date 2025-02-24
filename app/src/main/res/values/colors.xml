@@ -7,4 +7,5 @@
     <color name="accent_color">#FFF39C12</color>
     <color name="neutral_color">#FFECF0F1</color>
     <color name="warning_color">#FFE74C3C</color>
+    <color name="gray">#FFD2D2D2</color>
 </resources>

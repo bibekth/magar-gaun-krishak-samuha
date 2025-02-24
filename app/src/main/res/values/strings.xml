@@ -5,4 +5,49 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="name_home">Name: </string>
+    <string name="total_savings_home">Total Savings: </string>
+    <string name="total_debt_collected_home">Total Debt Collected: </string>
+    <string name="last_payment_date_home">Last Payment Date: </string>
+    <string name="last_down_payment_home">Last Down Payment: </string>
+    <string name="remaining_debt_home">Remaining Debt: </string>
+    <string name="payable_interest_home">Payable Interest: </string>
+    <string name="payable_saving_home">Payable Saving: </string>
+    <string name="fine_home">Fine: </string>
+    <string name="pay">Pay</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="hamro_samuha">Hamro Samuha</string>
+    <string name="please_select_the_language">Please select the language</string>
+    <string name="all_reserved">All rights are reserved © TechEnfield 2025</string>
+    <string name="flag">Flag</string>
+    <string name="english">English</string>
+    <string name="confirm">Confirm</string>
+    <string name="enter_your_phone_number_and_password">Enter your phone number and password</string>
+    <string name="phone_number_or_email">Phone Number or Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+
+
+    <string name="nep_app_name">मगर गाउँ कृषक समूह</string>
+    <string name="nep_hamro_samuha">हाम्रो समूह</string>
+    <string name="nep_name_home">नाम:</string>
+    <string name="nep_total_savings_home">कुल बचत: </string>
+    <string name="nep_total_debt_collected_home">कुल ऋण संकलन: </string>
+    <string name="nep_last_payment_date_home">अन्तिम भुक्तानी मिति: </string>
+    <string name="nep_last_down_payment_home">अन्तिम ऋण भुक्तानी: </string>
+    <string name="nep_remaining_debt_home">बाँकी ऋण: </string>
+    <string name="nep_payable_interest_home">तिर्नु पर्ने ब्याज: </string>
+    <string name="nep_payable_saving_home">तिर्नु पर्ने बचत: </string>
+    <string name="nep_fine_home">जरिमाना: </string>
+    <string name="nep_logout">बाहिरिनुहोस्</string>
+    <string name="nep_pick_a_language">भाषा छनोट गर्नुहोस</string>
+    <string name="nep_nepali">नेपाली</string>
+    <string name="nep_confirm">पुष्टि</string>
+    <string name="nep_enter_your_phone_number_and_password">आफ्नो फोन नम्बर र पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="nep_phone_number_or_email">फोन नम्बर वा इमेल</string>
+    <string name="nep_password">पासवर्ड</string>
+    <string name="nep_login">लगइन</string>
 </resources>

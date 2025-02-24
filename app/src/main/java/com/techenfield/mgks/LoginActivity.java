@@ -2,11 +2,13 @@ package com.techenfield.mgks;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -16,6 +18,8 @@ import com.techenfield.mgks.services.Login;
 import com.techenfield.mgks.services.RetrofitService;
 import com.techenfield.mgks.services.TokenManager;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,24 +27,22 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     EditText etEmailPhoneNumber, etPassword;
-    String fcm_id, device_id;
+    String fcm_id, device_id, lang;
     Intent loginIntent;
+    TextView tvHamroSamuha, tvEnterYourPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         FirebaseApp.initializeApp(this);
 
-        String token = TokenManager.getToken(getApplicationContext());
-        if(token != null){
-            Intent tokenIntent = new Intent(this, MainActivity.class);
-            startActivity(tokenIntent);
-        }
+        lang = TokenManager.getLang(getApplicationContext());
+
         etPassword = findViewById(R.id.etPassword);
-        etEmailPhoneNumber = findViewById(R.id.etEmailPhoneNumber);
+        etEmailPhoneNumber = findViewById(R.id.etPhoneNumberEmail);
         btnLogin = findViewById(R.id.btnLogin);
         loginIntent = new Intent(this, MainActivity.class);
-
+        checkLang();
     }
 
     @Override
@@ -86,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(@NonNull Call<UserModel> call, @NonNull Response<UserModel> response) {
                     if (response.isSuccessful()) {
                         UserModel userModelResponse = response.body();
-                        if (userModelResponse != null) {
+                        if (userModelResponse != null && Objects.equals(userModelResponse.getStatus(), "Success")) {
 //                            UserModel.Body.User user = userModelResponse.getBody().getUser();
                             try {
                                 String token = userModelResponse.getBody().getToken();
@@ -98,9 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             }catch (Exception e){
                                 Toast.makeText(LoginActivity.this, "Something went wrong.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                        }
-                    } else {
+                        } 
                     }
                 }
 
@@ -114,5 +114,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+    }
+
+    protected void checkLang(){
+        if(Objects.equals(lang, "Nep")){
+            tvHamroSamuha = findViewById(R.id.tvHamroSamuha);
+            tvHamroSamuha.setText(ContextCompat.getString(LoginActivity.this, R.string.nep_hamro_samuha));
+            tvEnterYourPhone = findViewById(R.id.tvEnterYourPhone);
+            tvEnterYourPhone.setText(ContextCompat.getString(LoginActivity.this, R.string.nep_enter_your_phone_number_and_password));
+            etEmailPhoneNumber.setHint(ContextCompat.getString(LoginActivity.this, R.string.nep_phone_number_or_email));
+            etPassword.setHint(ContextCompat.getString(LoginActivity.this, R.string.nep_password));
+            btnLogin.setText(ContextCompat.getString(LoginActivity.this, R.string.nep_login));
+        }
     }
 }

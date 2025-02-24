@@ -8,7 +8,7 @@ public class TokenManager {
     private static final String TOKEN_KEY = "auth_token";
     private static final String PHONE_NUMBER = "phone_number";
     private static final String ROLE = "role";
-
+    private static final String LANGUAGE = "lang";
     private static final String CUSTOMERS = "customers";
     public static void saveToken(Context context, String token) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -64,6 +64,25 @@ public class TokenManager {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove(ROLE);
+        editor.apply();
+    }
+
+    public static void saveLang(Context context, String lang) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(LANGUAGE, lang);
+        editor.apply();
+    }
+
+    public static String getLang(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(LANGUAGE, null);
+    }
+
+    public static void clearLang(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(LANGUAGE);
         editor.apply();
     }
 }

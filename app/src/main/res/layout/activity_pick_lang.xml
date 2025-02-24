@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_color"
+    tools:context=".PickLangActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llTitleSection"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_214tedp"
+        android:background="@color/accent_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvHamroSamuha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hamro_samuha"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_24tesp"
+            android:fontFamily="@font/montserrat_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMainBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_48tedp"
+        android:paddingBottom="@dimen/_48tedp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTitleSection">
+
+        <TextView
+            android:id="@+id/tvNepPickLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nep_pick_a_language"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16tesp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPleaseChooseLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16tesp"
+            android:text="@string/please_select_the_language"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNepPickLang" />
+
+        <LinearLayout
+            android:id="@+id/llNepaliLang"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48tedp"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/_40tedp"
+            android:layout_marginEnd="@dimen/_40tedp"
+            android:layout_marginTop="@dimen/_16tedp"
+            android:layout_marginBottom="@dimen/_12tedp"
+            android:background="@drawable/input_field_shape"
+            android:text="@string/nep_nepali"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPleaseChooseLang">
+            <ImageView
+                android:id="@+id/ivNepalFlag"
+                android:src="@drawable/nepali_flag"
+                android:contentDescription="@string/flag"
+                android:layout_marginStart="@dimen/_12tedp"
+                android:layout_marginEnd="@dimen/_12tedp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/tvNepNepali"
+                android:text="@string/nep_nepali"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="@dimen/_16tesp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llEngLang"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48tedp"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/_40tedp"
+            android:layout_marginEnd="@dimen/_40tedp"
+            android:layout_marginTop="@dimen/_12tedp"
+            android:background="@drawable/input_field_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llNepaliLang">
+            <ImageView
+                android:id="@+id/ivUKFlag"
+                android:src="@drawable/uk_flag"
+                android:contentDescription="@string/flag"
+                android:layout_marginStart="@dimen/_12tedp"
+                android:layout_marginEnd="@dimen/_12tedp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+
+            <TextView
+                android:id="@+id/tvUKEnglish"
+                android:text="@string/english"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16tesp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48tedp"
+            android:text="@string/confirm"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_40tedp"
+            android:layout_marginEnd="@dimen/_40tedp"
+            android:layout_marginTop="@dimen/_48tedp"
+            android:background="@drawable/submit_btn_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llEngLang" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAllRightsReserved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvAllReserved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_reserved"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
