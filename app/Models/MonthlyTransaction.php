@@ -13,4 +13,24 @@ class MonthlyTransaction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getSavingsAttribute($value){
+        return intval($value);
+    }
+
+    public function getDownPaymentAmountAttribute($value){
+        return intval($value);
+    }
+
+    public function getInterestAttribute($value){
+        return intval($value);
+    }
+
+    public function getFinedAttribute($value){
+        return intval($value);
+    }
+
+    public function getTotalCollectedAmountAttribute($value){
+        return intval($value);
+    }
 }

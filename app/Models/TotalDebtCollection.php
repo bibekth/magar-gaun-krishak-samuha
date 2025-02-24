@@ -13,4 +13,8 @@ class TotalDebtCollection extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getTotalDebtCollectedTillNowAttribute($value){
+        return intval($value);
+    }
 }

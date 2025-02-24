@@ -9,4 +9,8 @@ class MonthlyCollection extends Model
 {
     use SoftDeletes;
     protected $fillable = ['year','month','total_collected_amount'];
+
+    public function getTotalCollectedAmountAttribute($value){
+        return intval($value);
+    }
 }
