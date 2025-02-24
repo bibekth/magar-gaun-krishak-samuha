@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::insert([
-            ['name' => 'Tech Enfield', 'phone_number' => '9800000000', 'email' => 'info@techenfield.com', 'password' => $password, 'role_id' => 1, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Tech Enfield', 'phone_number' => '9810000000', 'email' => 'info@techenfield.com', 'password' => $password, 'role_id' => 1, 'created_at' => $now, 'updated_at' => $now],
             ['name' => 'Bibek Thapa Magar', 'phone_number' => '9809101575', 'email' => 'bibek.thapa0521@gmail.com', 'password' => $password, 'role_id' => 2, 'created_at' => $now, 'updated_at' => $now],
             ['name' => 'Suresh Thapa', 'phone_number' => '9855065429', 'email' => 'sureshthapa@gmail.com', 'password' => $password, 'role_id' => 3, 'created_at' => $now, 'updated_at' => $now],
         ]);

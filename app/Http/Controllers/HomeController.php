@@ -37,7 +37,7 @@ class HomeController extends Controller
             'excel' => 'required|mimes:xlsx,xls,csv'
         ]);
         try {
-            // DB::beginTransaction();
+            DB::beginTransaction();
             $file = $request->file('excel');
             $filetype = $file->getClientOriginalExtension();
             $filename = 'excel.' . $filetype;
@@ -57,10 +57,10 @@ class HomeController extends Controller
                 // chmod($filePath, 0775);
             }
             $result = $this->getCollection($path, $filename);
-            // DB::commit();
+            DB::commit();
             return $result;
         } catch (Exception $e) {
-            // DB::rollBack();
+            DB::rollBack();
             return 'failed';
         }
     }
