@@ -41,7 +41,7 @@ class APIController extends Controller
             $data['fine'] = 50 * ($diffInMonth - 1);
             $data['totalDebtCollected'] = $user->totalDebtCollected ? $user->totalDebtCollected->total_debt_collected_till_now : 0;
             $data['lastDownPayment'] = $data['downPaymentHistory'][count($data['downPaymentHistory']) - 1];
-            $data['unpaid_months'] = $user->remainingDebt->unpaid_months;
+            $data['unpaidMonths'] = $user->remainingDebt->unpaid_months;
             return response()->json(['status' => 'success', 'body' => $data], 200);
         }
     }
