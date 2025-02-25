@@ -8,4 +8,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:api');
 Route::post('/login',[APIController::class,'login'])->name('login');
-Route::get('/main',[APIController::class,'main'])->name('main')->middleware('token.api');
+Route::middleware('token.api')->group(function (){
+    Route::get('/main',[APIController::class,'main'])->name('main');
+    Route::post('/pay', [APIController::class,'pay'])->name('pay');
+});
