@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/llTitleSection"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48tedp"
+        android:layout_height="@dimen/_64tedp"
         android:background="@color/accent_color"
         android:gravity="center"
         android:paddingStart="@dimen/_8tedp"
@@ -49,7 +49,7 @@
                 android:id="@+id/tvNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/name_home"
                 android:textColor="@color/black" />
 
@@ -57,7 +57,7 @@
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:id="@+id/tvTotalSavingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/total_savings_home"
                 android:textColor="@color/black" />
 
@@ -79,7 +79,7 @@
                 android:id="@+id/tvTotalSavings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -93,7 +93,7 @@
                 android:id="@+id/tvTotalDebtCollectedText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/total_debt_collected_home"
                 android:textColor="@color/black" />
 
@@ -101,7 +101,7 @@
                 android:id="@+id/tvTotalDebtCollected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -115,7 +115,7 @@
                 android:id="@+id/tvLastPaymentDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/last_payment_date_home"
                 android:textColor="@color/black" />
 
@@ -123,7 +123,7 @@
                 android:id="@+id/tvLastPaymentDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -137,7 +137,7 @@
                 android:id="@+id/tvLastDownPaymentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/last_down_payment_home"
                 android:textColor="@color/black" />
 
@@ -145,7 +145,7 @@
                 android:id="@+id/tvLastDownPayment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -159,7 +159,7 @@
                 android:id="@+id/tvRemainingDebtText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/remaining_debt_home"
                 android:textColor="@color/black" />
 
@@ -167,7 +167,29 @@
                 android:id="@+id/tvRemainingDebt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginVertical="@dimen/_4tedp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvUnpaidMonthsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_20tesp"
+                android:text="@string/unpaid_months"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvUnpaidMonths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -181,7 +203,7 @@
                 android:id="@+id/tvPayableInterestText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/payable_interest_home"
                 android:textColor="@color/black" />
 
@@ -189,7 +211,7 @@
                 android:id="@+id/tvPayableInterest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -203,7 +225,7 @@
                 android:id="@+id/tvPayableSavingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/payable_saving_home"
                 android:textColor="@color/black" />
 
@@ -211,7 +233,7 @@
                 android:id="@+id/tvPayableSaving"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -225,7 +247,7 @@
                 android:id="@+id/tvFineText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:text="@string/fine_home"
                 android:textColor="@color/black" />
 
@@ -233,7 +255,7 @@
                 android:id="@+id/tvFine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16tesp"
+                android:textSize="@dimen/_20tesp"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>

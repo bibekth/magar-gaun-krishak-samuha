@@ -2,8 +2,10 @@ package com.techenfield.mgks;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +30,11 @@ public class PickLangActivity extends AppCompatActivity {
         }
 
         findView();
+
+        if (tvHamroSamuha != null) {
+            Typeface typeface = ResourcesCompat.getFont(this, R.font.montserrat_semibold);
+            tvHamroSamuha.setTypeface(typeface);
+        }
     }
 
     @Override
@@ -68,6 +75,8 @@ public class PickLangActivity extends AppCompatActivity {
         llNepaliLang = findViewById(R.id.llNepaliLang);
         llEngLang = findViewById(R.id.llEngLang);
         btnConfirm = findViewById(R.id.btnConfirm);
+
+
     }
 
     protected void pickLang() {

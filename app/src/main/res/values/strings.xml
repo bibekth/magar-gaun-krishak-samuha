@@ -28,6 +28,7 @@
     <string name="phone_number_or_email">Phone Number or Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="unpaid_months">Unpaid Months:</string>
 
 
 
@@ -50,4 +51,5 @@
     <string name="nep_phone_number_or_email">फोन नम्बर वा इमेल</string>
     <string name="nep_password">पासवर्ड</string>
     <string name="nep_login">लगइन</string>
+    <string name="nep_unpaid_months">भुक्तानी नगरिएको महिना:</string>
 </resources>

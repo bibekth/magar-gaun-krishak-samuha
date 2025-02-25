@@ -31,7 +31,7 @@ public class MainModel {
     }
 
     public static class Body{
-        public String userName, totalSavings, totalDebtCollected, fine, payableInterest, payableSaving, monthsToPay, remainingDebt;
+        public String userName, totalSavings, totalDebtCollected, fine, payableInterest, payableSaving, monthsToPay, remainingDebt, unpaidMonths;
         public LastDownPayment lastDownPayment;
         public Body() {
         }
@@ -45,6 +45,19 @@ public class MainModel {
             this.payableSaving = payableSaving;
             this.monthsToPay = monthsToPay;
             this.remainingDebt = remainingDebt;
+            this.lastDownPayment = lastDownPayment;
+        }
+
+        public Body(String userName, String totalSavings, String totalDebtCollected, String fine, String payableInterest, String payableSaving, String monthsToPay, String remainingDebt, String unpaidMonths, LastDownPayment lastDownPayment) {
+            this.userName = userName;
+            this.totalSavings = totalSavings;
+            this.totalDebtCollected = totalDebtCollected;
+            this.fine = fine;
+            this.payableInterest = payableInterest;
+            this.payableSaving = payableSaving;
+            this.monthsToPay = monthsToPay;
+            this.remainingDebt = remainingDebt;
+            this.unpaidMonths = unpaidMonths;
             this.lastDownPayment = lastDownPayment;
         }
 
@@ -118,6 +131,14 @@ public class MainModel {
 
         public void setMonthsToPay(String monthsToPay) {
             this.monthsToPay = monthsToPay;
+        }
+
+        public String getUnpaidMonths() {
+            return unpaidMonths;
+        }
+
+        public void setUnpaidMonths(String unpaidMonths) {
+            this.unpaidMonths = unpaidMonths;
         }
 
         public static class LastDownPayment{

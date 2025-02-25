@@ -3,8 +3,10 @@ package com.techenfield.mgks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ import com.techenfield.mgks.services.Login;
 import com.techenfield.mgks.services.RetrofitService;
 import com.techenfield.mgks.services.TokenManager;
 
+import java.lang.reflect.Type;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     String fcm_id, device_id, lang;
     Intent loginIntent;
     TextView tvHamroSamuha, tvEnterYourPhone;
+    Typeface typeface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +46,14 @@ public class LoginActivity extends AppCompatActivity {
         etEmailPhoneNumber = findViewById(R.id.etPhoneNumberEmail);
         btnLogin = findViewById(R.id.btnLogin);
         loginIntent = new Intent(this, MainActivity.class);
+
+        tvHamroSamuha = findViewById(R.id.tvHamroSamuha);
         checkLang();
+
+        if (tvHamroSamuha != null) {
+            typeface = ResourcesCompat.getFont(this, R.font.montserrat_semibold);
+            tvHamroSamuha.setTypeface(typeface);
+        }
     }
 
     @Override
@@ -118,7 +129,6 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void checkLang(){
         if(Objects.equals(lang, "Nep")){
-            tvHamroSamuha = findViewById(R.id.tvHamroSamuha);
             tvHamroSamuha.setText(ContextCompat.getString(LoginActivity.this, R.string.nep_hamro_samuha));
             tvEnterYourPhone = findViewById(R.id.tvEnterYourPhone);
             tvEnterYourPhone.setText(ContextCompat.getString(LoginActivity.this, R.string.nep_enter_your_phone_number_and_password));
