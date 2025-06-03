@@ -31,7 +31,7 @@ Route::post('/github/webhooks', function () {
             file_put_contents("webhook.log", implode('\n', $output), FILE_APPEND);
         }
 
-        return response()->json('successfully pulled', 200);
+        return response()->json('successfully pulled via main branch', 200);
     } catch (Exception $e) {
         return response()->json($e->getMessage(), 500);
     }
